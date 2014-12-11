@@ -1,41 +1,35 @@
-=== Plugin Name ===
-Contributors: (this should be a list of wordpress.org userid's)
+=== Beccatron People ===
+Contributors: beccatron
 Donate link: http://beccatron.com
-Tags: comments, spam
+Tags: custom post type, profiles, people
 Requires at least: 3.0.1
 Tested up to: 3.4
 Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
+Creates a custom post type "Beccatron People" for displaying profiles of people.
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+Creates a custom post type "Beccatron People" for displaying profiles of people (separate from user accounts).
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+A 'Beccatron Person' includes the following meta-data. You can incorporate these into your theme using the slug in parentheses and get_post_meta().
 
-A few notes about the sections above:
+** Vital Stats **
 
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
+* Email `b_ppl_email`
+* Website `b_ppl_website`
+* Twitter `b_ppl_twitter`
+* Facebook `b_ppl_facebook`
+* Institutional Affiliations & Roles (up to 3) `b_ppl_inst1`, `b_ppl_inst2`, `b_ppl_inst3`, `b_ppl_role1`, `b_ppl_role2`, `b_ppl_role3`
 
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
+** Short Bio **
+Place to enter a short bio for displaying on archive pages & in shortcodes ``b_ppl_shortbio``
 
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
+** Headshot **
+The featured image box is relabeled as "headshot." ``the_post_thumbnail()``
+
 
 == Installation ==
 
@@ -43,8 +37,8 @@ This section describes how to install the plugin and get it working.
 
 e.g.
 
-1. Upload `beccatron-people.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
+1. Upload `beccatron-people.zip` to the `/wp-content/plugins/` directory
+2. Activate the plugin through the 'Plugins' menu in WordPress
 1. Place `<?php do_action('beccatron_people_hook'); ?>` in your templates
 
 == Frequently Asked Questions ==
@@ -68,25 +62,11 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 == Changelog ==
 
 = 1.0 =
-* A change since the previous version.
-* Another change.
+* Initial Commit. Still needs work!
 
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
+== Credits ==
 
-== Upgrade Notice ==
-
-= 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
-
-= 0.5 =
-This version fixes a security related bug.  Upgrade immediately.
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
+Based on the [WordPress Plugin Boilerplate](https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate "WordPress Plugin Boilerplate on github") by Tom Mcfarlin 
 
 == A brief Markdown Example ==
 
