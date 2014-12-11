@@ -13,8 +13,8 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the dashboard-specific stylesheet and JavaScript.
+ * Defines the plugin name, version, and hooks to register the 
+ * custom post type & to enqueue the dashboard-specific stylesheet and JavaScript.
  *
  * @package    Beccatron_People
  * @subpackage Beccatron_People/public
