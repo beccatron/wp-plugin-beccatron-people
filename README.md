@@ -41,13 +41,59 @@ This section describes how to install the plugin and get it working.
 
 ## Frequently Asked Questions ##
 
-### A question that someone might have ###
+### How can I add a new metabox? ###
 
-An answer to that question.
+1. Create a new plugin, and extend the class ``Beccatron_People``
+2. Create a new instance of ``Beccatron_People_Metabox``
+3. Add some fields to your new metabox with the method ``add_meta_field``
+4. Use the ``loader`` hook the ``add_meta_box`` and ``meta_save`` actions into WordPress
+5. Create an instance of your plugin class and run
 
-### What about foo bar? ###
+` 	class NEW_People extends Beccatron_People{
+	
+		protected $plugin_name;
+		protected $version;
 
-Answer to foo bar dilemma.
+	
+		public function __construct() {
+
+			$this->plugin_name = 'NEW-people';
+			$this->version = '1.0.0';
+			$this->load_dependencies();
+			$this->define_hooks();
+
+		}
+	
+		private function load_dependencies() {
+			$this->loader = new Beccatron_People_Loader();
+
+		}
+	
+		private function define_hooks() {
+	
+			$NEW_metabox = new Beccatron_People_Metabox( 'slug', 'Title', 'side', 'core'); 		
+		
+			/* Add a field to your metabox */
+			$metabox_NEWFIELD->add_meta_field( 'id', 'title', 'description', 'textarea');	
+		
+			/* Add the metabox */
+			$this->loader->add_action( 'add_meta_boxes', $NEW_metabox, 'add_meta_box' );
+		
+		
+			/* Save Meta Boxes */
+			$this->loader->add_action ('save_post', $metabox_council, 'meta_save' );
+		}
+	}	
+
+
+	function run_NEW_people() {
+
+		$plugin = new NEW_People();
+		$plugin->run();
+
+	}
+	run_NEW_people(); `
+
 
 ## Screenshots ##
 
