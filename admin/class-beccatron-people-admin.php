@@ -231,7 +231,7 @@ class Beccatron_People_MetaBox {
 	 * @var      string			      $type		        The type of field (text area, drop down, etc.)
 	 */
 	public function add_meta_field( $key, $label, $desc, $type ) {
-		$prefix = $this->slug;
+		$prefix = 'b_ppl';
 		
 		$this->meta_fields[$key] = array(
 			'id'=>$prefix.'_'.$key, // affix a prefix to the ID to keep it unique (multiple metaboxes might have the same "key"
