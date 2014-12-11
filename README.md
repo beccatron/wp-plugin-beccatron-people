@@ -1,4 +1,4 @@
-=== Beccatron People ===
+# Beccatron People #
 Contributors: beccatron
 Donate link: http://beccatron.com
 Tags: custom post type, profiles, people
@@ -10,7 +10,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Creates a custom post type "Beccatron People" for displaying profiles of people.
 
-== Description ==
+## Description ##
 
 Creates a custom post type "Beccatron People" for displaying profiles of people (separate from user accounts).
 
@@ -31,15 +31,13 @@ Place to enter a short bio for displaying on archive pages & in shortcodes ``b_p
 The featured image box is relabeled as "headshot." ``the_post_thumbnail()``
 
 
-== Installation ==
+## Installation ##
 
 This section describes how to install the plugin and get it working.
 
-e.g.
 
 1. Upload `beccatron-people.zip` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('beccatron_people_hook'); ?>` in your templates
 
 == Frequently Asked Questions ==
 
@@ -59,36 +57,12 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 (or jpg, jpeg, gif).
 2. This is the second screen shot
 
-== Changelog ==
+## Changelog ##
 
 = 1.0 =
 * Initial Commit. Still needs work!
 
-== Credits ==
+## Credits ##
 
 Based on the [WordPress Plugin Boilerplate](https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate "WordPress Plugin Boilerplate on github") by Tom Mcfarlin 
 
-== A brief Markdown Example ==
-
-Ordered list:
-
-1. Some feature
-1. Another feature
-1. Something else about the plugin
-
-Unordered list:
-
-* something
-* something else
-* third thing
-
-Here's a link to [WordPress](http://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
-Titles are optional, naturally.
-
-[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-            "Markdown is what the parser uses to process much of the readme file"
-
-Markdown uses email style notation for blockquotes and I've been told:
-> Asterisks for *emphasis*. Double it up  for **strong**.
-
-`<?php code(); // goes in backticks ?>`
