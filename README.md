@@ -50,50 +50,50 @@ This section describes how to install the plugin and get it working.
 5. Create an instance of your plugin class and run
 
 ```
-	class NEW_People extends Beccatron_People{
-	
-		protected $plugin_name;
-		protected $version;
+class NEW_People extends Beccatron_People{
 
-	
-		public function __construct() {
-
-			$this->plugin_name = 'NEW-people';
-			$this->version = '1.0.0';
-			$this->load_dependencies();
-			$this->define_hooks();
-
-		}
-	
-		private function load_dependencies() {
-			$this->loader = new Beccatron_People_Loader();
-
-		}
-	
-		private function define_hooks() {
-	
-			$NEW_metabox = new Beccatron_People_Metabox( 'slug', 'Title', 'side', 'core'); 		
-		
-			/* Add a field to your metabox */
-			$metabox_NEWFIELD->add_meta_field( 'id', 'title', 'description', 'textarea');	
-		
-			/* Add the metabox */
-			$this->loader->add_action( 'add_meta_boxes', $NEW_metabox, 'add_meta_box' );
-		
-		
-			/* Save Meta Boxes */
-			$this->loader->add_action ('save_post', $metabox_council, 'meta_save' );
-		}
-	}	
+	protected $plugin_name;
+	protected $version;
 
 
-	function run_NEW_people() {
+	public function __construct() {
 
-		$plugin = new NEW_People();
-		$plugin->run();
+		$this->plugin_name = 'NEW-people';
+		$this->version = '1.0.0';
+		$this->load_dependencies();
+		$this->define_hooks();
 
 	}
-	run_NEW_people(); 
+
+	private function load_dependencies() {
+		$this->loader = new Beccatron_People_Loader();
+
+	}
+
+	private function define_hooks() {
+
+		$NEW_metabox = new Beccatron_People_Metabox( 'slug', 'Title', 'side', 'core'); 		
+	
+		/* Add a field to your metabox */
+		$metabox_NEWFIELD->add_meta_field( 'id', 'title', 'description', 'textarea');	
+	
+		/* Add the metabox */
+		$this->loader->add_action( 'add_meta_boxes', $NEW_metabox, 'add_meta_box' );
+	
+	
+		/* Save Meta Boxes */
+		$this->loader->add_action ('save_post', $metabox_council, 'meta_save' );
+	}
+}	
+
+
+function run_NEW_people() {
+
+	$plugin = new NEW_People();
+	$plugin->run();
+
+}
+run_NEW_people(); 
 ```
 
 ## Screenshots ##
