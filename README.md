@@ -49,7 +49,7 @@ This section describes how to install the plugin and get it working.
 4. Use the ``loader`` hook the ``add_meta_box`` and ``meta_save`` actions into WordPress
 5. Create an instance of your plugin class and run
 
-` 	class NEW_People extends Beccatron_People{
+`` 	class NEW_People extends Beccatron_People{
 	
 		protected $plugin_name;
 		protected $version;
@@ -92,7 +92,7 @@ This section describes how to install the plugin and get it working.
 		$plugin->run();
 
 	}
-	run_NEW_people(); `
+	run_NEW_people(); ``
 
 
 ## Screenshots ##
