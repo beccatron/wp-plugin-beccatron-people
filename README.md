@@ -46,7 +46,7 @@ This section describes how to install the plugin and get it working.
 1. Create a new plugin, and extend the class ``Beccatron_People``
 2. Create a new instance of ``Beccatron_People_Metabox``
 3. Add some fields to your new metabox with the method ``add_meta_field``
-4. Use the ``loader`` hook the ``add_meta_box`` and ``meta_save`` actions into WordPress
+4. Use the ``loader`` to hook the ``add_meta_box`` and ``meta_save`` actions into WordPress
 5. Create an instance of your plugin class and run
 
 ```
@@ -96,14 +96,6 @@ function run_NEW_people() {
 run_NEW_people(); 
 ```
 
-## Screenshots ##
-
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
-
 ## Changelog ##
 
 = 1.0 =
@@ -113,3 +105,9 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 Based on the [WordPress Plugin Boilerplate](https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate "WordPress Plugin Boilerplate on github") by Tom Mcfarlin 
 
+## To-Do ##
+
+- Not sure if folders for admin & public really makes sense for this plugin. May try a more direct file organization.
+- V-Card upload would be nice
+- Some sort of AJAX trickery to only show additional institutional affiliations/roles if requested
+- Document how to use the metadata in a theme
