@@ -14,7 +14,7 @@ A wordpress plugin that creates a custom post type "Beccatron People" for displa
 
 Creates a custom post type "Beccatron People" for displaying profiles of people (separate from user accounts).
 
-A 'Beccatron Person' includes the following meta-data. You can incorporate these into your theme using the slug in parentheses and get_post_meta().
+A 'Beccatron Person' includes the following meta-data, which you can incorporate these into your theme using the slug in parentheses and `get_post_meta()`:
 
 ### Vital Stats ###
 
