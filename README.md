@@ -111,3 +111,5 @@ Based on the [WordPress Plugin Boilerplate](https://github.com/tommcfarlin/WordP
 - V-Card upload would be nice
 - Some sort of AJAX trickery to only show additional institutional affiliations/roles if requested
 - Document how to use the metadata in a theme
+- Shortcode to list all the people (of a given taxonomy?)
+- Uninstall - delete all the posts created through plugin??

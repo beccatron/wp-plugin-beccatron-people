@@ -73,7 +73,7 @@ class Beccatron_People_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->beccatron_people, plugin_dir_url( __FILE__ ) . 'css/beccatron-people-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/beccatron-people-admin.css', array(), $this->version, 'all' );
 
 	}
 
@@ -234,7 +234,7 @@ class Beccatron_People_MetaBox {
 		$prefix = 'b_ppl';
 		
 		$this->meta_fields[$key] = array(
-			'id'=>$prefix.'_'.$key, // affix a prefix to the ID to keep it unique (multiple metaboxes might have the same "key"
+			'id'=>$prefix.'_'.$key, // affix a prefix to the ID to keep it unique (multiple metaboxes might have the same "key")
 			'label'=>$label, 
 			'desc'=>$desc, 
 			'type'=>$type
@@ -278,6 +278,24 @@ class Beccatron_People_MetaBox {
 						// textarea
 						case 'textarea':
 							echo '<textarea name="'.$field['id'].'" id="'.$field['id'].'" >'.$meta.'</textarea>
+								<br /><span class="description">'.$field['desc'].'</span>';
+						break;
+						
+						// email
+						case 'email':
+							echo '<input type="email" name="'.$field['id'].'" id="'.$field['id'].'" value="'.$meta.'" />
+								<br /><span class="description">'.$field['desc'].'</span>';
+						break;
+						
+						// url
+						case 'url':
+							echo '<input type="url" name="'.$field['id'].'" id="'.$field['id'].'" value="'.$meta.'" placeholder="http://" />
+								<br /><span class="description">'.$field['desc'].'</span>';
+						break;
+						
+						// twitter
+						case 'twitter': 
+							echo '<br /><span class="input-prefix">@</span> <input class="has-prefix" type="text" name="'.$field['id'].'" id="'.$field['id'].'" value="'.$meta.'" />
 								<br /><span class="description">'.$field['desc'].'</span>';
 						break;
 					

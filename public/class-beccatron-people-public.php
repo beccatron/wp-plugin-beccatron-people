@@ -133,7 +133,7 @@ class Beccatron_People_Public {
 			'show_in_menu' => true,
 			'show_in_admin_bar' => true,
 			'menu_position' => 20,
-			'menu_icon' => 20,
+			'menu_icon' => '',
 			'exclude_from_search' => false,
 			'publicly_queryable' => true,
 			'has_archive' => true,

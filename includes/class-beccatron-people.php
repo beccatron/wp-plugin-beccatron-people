@@ -152,7 +152,7 @@ class Beccatron_People {
 
 		$plugin_admin = new Beccatron_People_Admin( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'admin_enqueue_styles', $plugin_admin, 'enqueue_styles' );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
 		/* Rename Featured Image Metabox */
@@ -165,7 +165,9 @@ class Beccatron_People {
 		 *
 		 */
 
-		$metabox_vitals = new Beccatron_People_Metabox( 'vitals', 'Vital Stats', 'side', 'core'); 		// Vital Stats Meta Box
+		$metabox_fullname = new Beccatron_People_Metabox( 'fullname', 'Full Name', 'side', 'core'); 							// Full Name Meta Box
+		$metabox_contact = new Beccatron_People_Metabox( 'contact', 'Contact Information', 'side', 'core'); 					// Contact Meta Box
+		$metabox_affiliations = new Beccatron_People_Metabox( 'affiliations', 'Institutional Affiliations', 'side', 'core');	// Institutions Meta Box
 		$metabox_shortbio = new Beccatron_People_Metabox( 'shortbio', 'Short Biography', 'normal', 'core'); 		// Short Biography Meta Box
 		
 		/**
@@ -179,28 +181,43 @@ class Beccatron_People {
 		 * @var      string			      $type		        The type of field (text area, drop down, etc.)
 		 */
 		
-		/* Vital Stats Fields */
-		$metabox_vitals->add_meta_field( 'email', 'Email', '', 'text');		// Email
-		$metabox_vitals->add_meta_field( 'website', 'Website', '(URL)', 'text');	// Website
-		$metabox_vitals->add_meta_field( 'twitter', 'Twitter', '(URL)', 'text');	// Twitter
-		$metabox_vitals->add_meta_field( 'facebook', 'Facebook', '(URL)', 'text');	// Facebook
-		$metabox_vitals->add_meta_field( 'inst1', 'Institutional Affiliation (Primary)', 'Business/Organization/University', 'text');	// Primary Institutional Affiliation
-		$metabox_vitals->add_meta_field( 'role1', 'Position (Primary)', 'Position/Role/Title', 'text');				// Primary Position
-		$metabox_vitals->add_meta_field( 'inst2', 'Institutional Affiliation (Secondary)', 'Business/Organization/University', 'text');	// Secondary Institutional Affiliation
-		$metabox_vitals->add_meta_field( 'role2', 'Position (Secondary)', 'Position/Role/Title', 'text');			// Secondary Position
-		$metabox_vitals->add_meta_field( 'inst3', 'Institutional Affiliation (Tertiary)', 'Business/Organization/University', 'text');	// Tertiary Institutional Affiliation
-		$metabox_vitals->add_meta_field( 'role3', 'Position (Tertiary)', 'Position/Role/Title', 'text');				// Tertiary Position
+		/* Fullname Fields */
+		$metabox_fullname->add_meta_field( 'prefix', 'Prefix', 'eg. Dr/Mrs/Mr.', 'text'); 	// Honorific Prefix
+		$metabox_fullname->add_meta_field( 'first', 'First Name', '', 'text'); 				// First Name
+		$metabox_fullname->add_meta_field( 'middle', 'Middle Name', '', 'text');			// Middle Name
+		$metabox_fullname->add_meta_field( 'last', 'Last Name', '', 'text');				// Last Name
+		$metabox_fullname->add_meta_field( 'suffix', 'Suffix', 'eg. M.D. /PhD/MSCSW', 'text');	// Suffix
+		
+		/* Contact Fields*/
+		$metabox_contact->add_meta_field( 'email', 'Email', '', 'email');			// Email
+		$metabox_contact->add_meta_field( 'website', 'Website', 'Full URL', 'url');	// Website
+		$metabox_contact->add_meta_field( 'phone', 'Phone', '', 'text');			// Phone
+		$metabox_contact->add_meta_field( 'fax', 'Fax', '', 'text');				// Fax
+		$metabox_contact->add_meta_field( 'twitter', 'Twitter', '', 'twitter');	// Twitter
+		$metabox_contact->add_meta_field( 'facebook', 'Facebook', 'Full URL', 'url');	// Facebook
+		
+		/* Affiliations Fields*/
+		$metabox_affiliations->add_meta_field( 'inst1', 'Institutional Affiliation (Primary)', 'Business/Organization/University', 'text');	// Primary Institutional Affiliation
+		$metabox_affiliations->add_meta_field( 'role1', 'Position (Primary)', 'Position/Role/Title', 'text');				// Primary Position
+		$metabox_affiliations->add_meta_field( 'inst2', 'Institutional Affiliation (Secondary)', 'Business/Organization/University', 'text');	// Secondary Institutional Affiliation
+		$metabox_affiliations->add_meta_field( 'role2', 'Position (Secondary)', 'Position/Role/Title', 'text');			// Secondary Position
+		$metabox_affiliations->add_meta_field( 'inst3', 'Institutional Affiliation (Tertiary)', 'Business/Organization/University', 'text');	// Tertiary Institutional Affiliation
+		$metabox_affiliations->add_meta_field( 'role3', 'Position (Tertiary)', 'Position/Role/Title', 'text');				// Tertiary Position
 
 		/* Short Bio Field */
 		$metabox_shortbio->add_meta_field( 'shortbio', 'Short Bio', '1-2 Line Biography', 'textarea');	// Short Bio
 		
 		/* Add Meta Boxes */
-		$this->loader->add_action( 'add_meta_boxes', $metabox_vitals, 'add_meta_box' );
+		$this->loader->add_action( 'add_meta_boxes', $metabox_fullname, 'add_meta_box' );
+		$this->loader->add_action( 'add_meta_boxes', $metabox_contact, 'add_meta_box' );
+		$this->loader->add_action( 'add_meta_boxes', $metabox_affiliations, 'add_meta_box' );
 		$this->loader->add_action( 'add_meta_boxes', $metabox_shortbio, 'add_meta_box' );
 
 		
 		/* Save Meta Boxes */
-		$this->loader->add_action ('save_post', $metabox_vitals, 'meta_save' );
+		$this->loader->add_action ('save_post', $metabox_fullname, 'meta_save' );
+		$this->loader->add_action ('save_post', $metabox_contact, 'meta_save' );
+		$this->loader->add_action ('save_post', $metabox_affiliations, 'meta_save' );
 		$this->loader->add_action ('save_post', $metabox_shortbio, 'meta_save' );
 		
 		
@@ -219,7 +236,7 @@ class Beccatron_People {
 
 		$plugin_public = new Beccatron_People_Public( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'wp_enqueue_styles', $plugin_public, 'enqueue_styles' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 		
 		/* Register Custom Post Type */

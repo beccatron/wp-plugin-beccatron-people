@@ -2,3 +2,28 @@
  * All of the CSS for your dashboard-specific functionality should be
  * included in this file.
  */
+ 
+#adminmenu #menu-posts-beccatron_people .dashicons-before:before {
+	content: "\f336";
+} 
+
+.postbox label{
+	vertical-align: top;
+	margin-right: .5em;
+	min-width: 4.5em;
+	float: left;
+}
+
+.postbox input{
+	width: 100%;
+	max-width: 28em;
+
+}
+
+.postbox input.has-prefix{
+	width: calc(100% - 2em);
+}
+
+.postbox .description{
+	opacity: .6;
+}
