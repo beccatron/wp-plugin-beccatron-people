@@ -16,7 +16,7 @@
  * Plugin Name:       Beccatron People
  * Plugin URI:        https://github.com/beccatron/wp-plugin-beccatron-people
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress dashboard.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Beccatron Studios
  * Author URI:        http://beccatron.com
  * License:           GPL-2.0+
