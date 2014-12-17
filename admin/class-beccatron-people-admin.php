@@ -271,31 +271,31 @@ class Beccatron_People_MetaBox {
 
 						// text
 						case 'text':
-							echo '<input type="text" name="'.$field['id'].'" id="'.$field['id'].'" value="'.$meta.'" />
+							echo '<input type="text" name="'.$field['id'].'" id="'.$field['id'].'" value="'. esc_attr($meta) .'" />
 								<br /><span class="description">'.$field['desc'].'</span>';
 						break;
 						
 						// textarea
 						case 'textarea':
-							echo '<textarea name="'.$field['id'].'" id="'.$field['id'].'" >'.$meta.'</textarea>
+							echo '<textarea name="'.$field['id'].'" id="'.$field['id'].'" >'. esc_attr($meta) .'</textarea>
 								<br /><span class="description">'.$field['desc'].'</span>';
 						break;
 						
 						// email
 						case 'email':
-							echo '<input type="email" name="'.$field['id'].'" id="'.$field['id'].'" value="'.$meta.'" />
+							echo '<input type="email" name="'.$field['id'].'" id="'.$field['id'].'" value="'. esc_attr($meta) .'" />
 								<br /><span class="description">'.$field['desc'].'</span>';
 						break;
 						
 						// url
 						case 'url':
-							echo '<input type="url" name="'.$field['id'].'" id="'.$field['id'].'" value="'.$meta.'" placeholder="http://" />
+							echo '<input type="url" name="'.$field['id'].'" id="'.$field['id'].'" value="'. esc_attr($meta) .'" placeholder="http://" />
 								<br /><span class="description">'.$field['desc'].'</span>';
 						break;
 						
 						// twitter
 						case 'twitter': 
-							echo '<br /><span class="input-prefix">@</span> <input class="has-prefix" type="text" name="'.$field['id'].'" id="'.$field['id'].'" value="'.$meta.'" />
+							echo '<br /><span class="input-prefix">@</span> <input class="has-prefix" type="text" name="'.$field['id'].'" id="'.$field['id'].'" value="'. esc_attr($meta) .'" />
 								<br /><span class="description">'.$field['desc'].'</span>';
 						break;
 					
@@ -328,10 +328,43 @@ class Beccatron_People_MetaBox {
 		
 		// loop through fields and save the data
     	foreach ($this->meta_fields as $field) {
-    	
-    		if( isset( $_POST[ $field['id'] ] ) ) {
-    			update_post_meta( $person_id, $field['id'], $_POST[ $field['id'] ] );
-			} 
+    		
+    		$key = $field['id'];
+    		$value = null;
+    		
+    		// If the field has a new value
+    		if ( !empty ($_POST[ $field['id']])) {
+    		
+				// Sanitize Values
+				// TODO Replace switch statements w/ OO-functions for child classes!
+				switch($field['type']) {
+				
+					// email
+					case 'email':
+						// sanitize
+						$value = sanitize_email( $_POST[ $field['id']] );
+						is_email($value);
+					break;
+				
+					// url
+					case 'url':
+						// sanitize
+						$value = esc_url_raw( $_POST[ $field['id']] );
+					break;
+				
+					default:
+						// sanitize
+						$value = sanitize_text_field( $_POST[ $field['id']] );
+					break;
+				 
+				
+				} //end switch 	
+				
+				if( !empty ($value)) {
+					update_post_meta( $person_id, $key, $value );
+				}
+			}	// end if			
+			
     
     	} // end foreach
 	
