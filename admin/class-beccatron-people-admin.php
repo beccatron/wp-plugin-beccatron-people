@@ -253,6 +253,8 @@ class Beccatron_People_MetaBox {
 	 	
 	 	// require_once plugin_dir_path( __FILE__ ) . 'partials/beccatron-people-meta-display.php';
 	 	
+	 	// class for admin styling
+	 	echo '<div class="beccatron_people_meta">';
 				
 		// Use nonce for verification
 		echo '<input type="hidden" name="custom_meta_box_nonce" value="'.wp_create_nonce(basename(__FILE__)).'" />';
@@ -303,7 +305,8 @@ class Beccatron_People_MetaBox {
 					} //end switch
 			echo '</p>';
     	} // end foreach
-	 	
+	 
+	 	echo '</div>';	
 	 }
 	 
 	/**

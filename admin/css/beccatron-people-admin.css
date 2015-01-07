@@ -7,20 +7,20 @@
 	content: "\f336";
 } 
 
-.postbox label{
+.postbox .beccatron_people_meta label{
 	vertical-align: top;
 	margin-right: .5em;
 	min-width: 4.5em;
 	float: left;
 }
 
-.postbox input{
+.postbox .beccatron_people_meta input{
 	width: 100%;
 	max-width: 28em;
 
 }
 
-.postbox input.has-prefix{
+.postbox .beccatron_people_meta input.has-prefix{
 	width: calc(100% - 2em);
 }
 
