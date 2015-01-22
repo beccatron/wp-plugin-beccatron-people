@@ -335,7 +335,7 @@ class Beccatron_People_MetaBox {
     		$key = $field['id'];
     		$value = null;
     		
-    		// If the field has a new value
+    		// If the field has a value
     		if ( !empty ($_POST[ $field['id']])) {
     		
 				// Sanitize Values
@@ -361,13 +361,12 @@ class Beccatron_People_MetaBox {
 					break;
 				 
 				
-				} //end switch 	
+				} //end switch
+			}	// end if
 				
-				if( !empty ($value)) {
-					update_post_meta( $person_id, $key, $value );
-				}
-			}	// end if			
-			
+			// if value is empty, set field to null!	
+			update_post_meta( $person_id, $key, $value );
+							
     
     	} // end foreach
 	
