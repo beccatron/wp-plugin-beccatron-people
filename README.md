@@ -101,6 +101,9 @@ run_NEW_people();
 = 1.0 =
 * Initial Commit. Still needs work!
 
+= 1.1 =
+Committing to server
+
 ## Credits ##
 
 Based on the [WordPress Plugin Boilerplate](https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate "WordPress Plugin Boilerplate on github") by Tom Mcfarlin 
