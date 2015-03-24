@@ -108,7 +108,7 @@ class Beccatron_People_Public {
 	
 	public function register_post_type() {
 		$labels = array(
-			'name' => 'Person',
+			'name' => 'People',
 			'name_singular' => 'Person',
 			'menu_name' => 'People',
 			'all_items' => 'People',
