@@ -167,8 +167,10 @@ class Beccatron_People {
 
 		$metabox_fullname = new Beccatron_People_Metabox( 'fullname', 'Full Name', 'side', 'core'); 							// Full Name Meta Box
 		$metabox_contact = new Beccatron_People_Metabox( 'contact', 'Contact Information', 'side', 'core'); 					// Contact Meta Box
-		$metabox_affiliations = new Beccatron_People_Metabox( 'affiliations', 'Institutional Affiliations', 'side', 'core');	// Institutions Meta Box
 		$metabox_shortbio = new Beccatron_People_Metabox( 'shortbio', 'Short Biography', 'normal', 'core'); 		// Short Biography Meta Box
+		$metabox_affiliations = new Beccatron_People_Metabox( 'affiliations', 'Institutional Affiliations', 'normal', 'core');	// Institutions Meta Box
+		$metabox_social = new Beccatron_People_Metabox( 'social', 'Social Networking', 'side', 'core'); 		// Short Biography Meta Box
+
 		
 		/**
 		 * Add the new fields to the metaboxes.
@@ -193,16 +195,30 @@ class Beccatron_People {
 		$metabox_contact->add_meta_field( 'website', 'Website', 'Full URL', 'url');	// Website
 		$metabox_contact->add_meta_field( 'phone', 'Phone', '', 'text');			// Phone
 		$metabox_contact->add_meta_field( 'fax', 'Fax', '', 'text');				// Fax
-		$metabox_contact->add_meta_field( 'twitter', 'Twitter', '', 'twitter');	// Twitter
-		$metabox_contact->add_meta_field( 'facebook', 'Facebook', 'Full URL', 'url');	// Facebook
+		$metabox_contact->add_meta_field( 'staddress', 'Address', '', 'text');				// Address
+		$metabox_contact->add_meta_field( 'city', 'City', '', 'text');				// City
+		$metabox_contact->add_meta_field( 'state', 'State', '', 'text');				// State
+		$metabox_contact->add_meta_field( 'zip', 'Zip', '', 'text');				// Zip
+
+		/* Social*/
+		$metabox_social->add_meta_field( 'twitter', 'Twitter', '', 'twitter');	// Twitter
+		$metabox_social->add_meta_field( 'facebook', 'Facebook', 'Full URL', 'url');	// Facebook
+		$metabox_social->add_meta_field( 'linkedin', 'LinkedIn', 'Full URL', 'url');	// Linked In
+		$metabox_social->add_meta_field( 'instagram', 'Instagram', 'Instagram handle', 'twitter');	// Instagram
+
+
 		
 		/* Affiliations Fields*/
-		$metabox_affiliations->add_meta_field( 'inst1', 'Institutional Affiliation (Primary)', 'Business/Organization/University', 'text');	// Primary Institutional Affiliation
 		$metabox_affiliations->add_meta_field( 'role1', 'Position (Primary)', 'Position/Role/Title', 'text');				// Primary Position
-		$metabox_affiliations->add_meta_field( 'inst2', 'Institutional Affiliation (Secondary)', 'Business/Organization/University', 'text');	// Secondary Institutional Affiliation
+		$metabox_affiliations->add_meta_field( 'inst1', 'Institutional Affiliation (Primary)', 'Business/Organization/University', 'text');	// Primary Institutional Affiliation
+		$metabox_affiliations->add_meta_field( 'instlink1', 'Link to Institution (Primary)', 'Full URL', 'url');	// Primary Institutional Affiliation
 		$metabox_affiliations->add_meta_field( 'role2', 'Position (Secondary)', 'Position/Role/Title', 'text');			// Secondary Position
-		$metabox_affiliations->add_meta_field( 'inst3', 'Institutional Affiliation (Tertiary)', 'Business/Organization/University', 'text');	// Tertiary Institutional Affiliation
+		$metabox_affiliations->add_meta_field( 'inst2', 'Institutional Affiliation (Secondary)', 'Business/Organization/University', 'text');	// Secondary Institutional Affiliation
+		$metabox_affiliations->add_meta_field( 'instlink2', 'Link to Institution (Secondary)', 'Full URL', 'url');	// Secondary Institutional Affiliation
 		$metabox_affiliations->add_meta_field( 'role3', 'Position (Tertiary)', 'Position/Role/Title', 'text');				// Tertiary Position
+		$metabox_affiliations->add_meta_field( 'inst3', 'Institutional Affiliation (Tertiary)', 'Business/Organization/University', 'text');	// Tertiary Institutional Affiliation
+		$metabox_affiliations->add_meta_field( 'instlink3', 'Link to Institution (Tertiary)', 'Full URL', 'url');	// Primary Institutional Affiliation
+
 
 		/* Short Bio Field */
 		$metabox_shortbio->add_meta_field( 'shortbio', 'Short Bio', '1-2 Line Biography', 'textarea');	// Short Bio
@@ -212,6 +228,8 @@ class Beccatron_People {
 		$this->loader->add_action( 'add_meta_boxes', $metabox_contact, 'add_meta_box' );
 		$this->loader->add_action( 'add_meta_boxes', $metabox_affiliations, 'add_meta_box' );
 		$this->loader->add_action( 'add_meta_boxes', $metabox_shortbio, 'add_meta_box' );
+		$this->loader->add_action( 'add_meta_boxes', $metabox_social, 'add_meta_box' );
+
 
 		
 		/* Save Meta Boxes */
@@ -219,6 +237,8 @@ class Beccatron_People {
 		$this->loader->add_action ('save_post', $metabox_contact, 'meta_save' );
 		$this->loader->add_action ('save_post', $metabox_affiliations, 'meta_save' );
 		$this->loader->add_action ('save_post', $metabox_shortbio, 'meta_save' );
+		$this->loader->add_action( 'save_post', $metabox_social, 'meta_save' );
+
 		
 		
 
