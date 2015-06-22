@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Beccatron People
  * Plugin URI:        https://github.com/beccatron/wp-plugin-beccatron-people
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress dashboard.
+ * Description:       A plugin for adding profiles of people to the site, separate from wordpress's user accounts.
  * Version:           1.0.1
  * Author:            Beccatron Studios
  * Author URI:        http://beccatron.com
